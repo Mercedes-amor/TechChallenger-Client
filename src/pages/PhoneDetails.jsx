@@ -36,14 +36,13 @@ export default function Phones(props) {
   return (
     <div className="divContainer">
        <Card className="cardDetails">
-      <Card.Img
+      <img className="phoneImg"
         variant="top"
         src={`http://localhost:5173/src/assets/${phoneDetails.imageFileName}`}
         alt="PhoneImg"
-        width={300}
       />
-    
-      <Card.Title className="title">{phoneDetails.name}</Card.Title>
+    <div>
+            <Card.Title className="title">{phoneDetails.name}</Card.Title>
      
       <ListGroup className="listGroup">
         <ListGroup.Item className="item">
@@ -72,6 +71,8 @@ export default function Phones(props) {
         <button className="btn-close" onClick={dontShowDetails}>
           Close Details
         </button>
+    </div>
+  
 
     
     </Card> 

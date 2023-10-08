@@ -54,6 +54,9 @@
   justify-content: center;
   align-items: center;
 }
+.phoneImg {
+  width: 300px;
+}
 .cardDetails{
   background-color: rgba(37, 37, 37, 0.212);
   width: 300px;
@@ -75,6 +78,16 @@
 
 /* MEDIA QUERYS */
 
-@media (min-width: 700px) {}
+@media (min-width: 700px) {
+
+  .cardDetails{
+    display: flex;
+    width: 700px;
+  }
+
+  .phoneImg {
+    width: 50vh;
+  }
+}
 
 
