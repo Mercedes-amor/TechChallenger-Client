@@ -1,7 +1,10 @@
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
 import PhoneDetails from "../pages/PhoneDetails";
+
+//Bootstrap
+import Button from "react-bootstrap/Button";
+import Spinner from "react-bootstrap/Spinner";
 
 export default function Phones() {
   const [allPhonesList, setAllPhonesList] = useState(null);
@@ -21,12 +24,12 @@ export default function Phones() {
     } catch (error) {}
   };
 
-  const handleShowDetails = (phoneId) => {
-    setIsDetailsShowing(phoneId);
+  const handleShowDetails = (eachPhoneId) => {
+    setIsDetailsShowing(eachPhoneId);
   };
 
   if (isLoading) {
-    return <h3>cargando</h3>;
+    return <Spinner animation="border" className="spinnerColor" />;
   }
 
   return (
@@ -34,14 +37,15 @@ export default function Phones() {
       {allPhonesList.map((eachPhone) => {
         return (
           <div key={eachPhone.id}>
-            <p>{eachPhone.name}</p>
-           
             {isDetailsShowing === eachPhone.id ? (
-              <PhoneDetails phoneId={eachPhone.id} setIsDetailsShowing={setIsDetailsShowing}/>
+              <PhoneDetails
+                phoneId={eachPhone.id}
+                setIsDetailsShowing={setIsDetailsShowing}
+              />
             ) : (
-              <button onClick={() => handleShowDetails(eachPhone.id)}>
-                Mostrar detalles
-              </button>
+              <Button variant="primary" onClick={() => handleShowDetails(eachPhone.id)}>
+                {eachPhone.name}
+              </Button>
             )}
           </div>
         );

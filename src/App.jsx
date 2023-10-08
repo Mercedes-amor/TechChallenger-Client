@@ -9,7 +9,9 @@ function App() {
 
   return (
    <>
-
+<h1>Phone Cave</h1>
+<h2>Tech Challenger</h2>
+<br />
 <Routes>
 <Route path="/" element={<Phones />} />
 <Route path="phone/details/:id" element={<PhoneDetails />} />
